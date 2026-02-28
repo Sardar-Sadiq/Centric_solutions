@@ -81,7 +81,7 @@ else:
     print("no match found")
 
 
-repetations
+---repetations---
 *  - 0 or more - ba* - "b","ba","baaa"
 +  - 1 or more - ba+ - "ba", "baaa" (not"b")
 ?  - 0 or 1    - ba? - "b", "ba"
@@ -96,7 +96,7 @@ if re.search(pattern, text):
 print("valid entry")
 
 
-validating email
+---validating email---
 
 import re
 
@@ -123,3 +123,7 @@ phone = "1234567890"
 --# Replace all digits except the last 4--
 masked = re.sub(r"\d(?=\d{4})", "*", phone)
 print(masked)  # Output: ******7890
+
+
+-----work for today------
+work on the multiplayer role based on the role ( ur role is frontend fullstack develoer)
