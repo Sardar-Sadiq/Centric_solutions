@@ -42,3 +42,24 @@
 #     print("match found")
 # else: 
 #     print("no match found")
+
+
+import re
+
+# The Pattern Breakdown:
+# ^      -> Start of string
+# (\w+)? -> Optional word characters (0 or 1 time)
+# \d{3}  -> Exactly 3 digits
+# .      -> Any single character (except newline)
+# \w+    -> 1 or more word characters
+# \s+    -> 1 or more whitespace characters
+# .      -> One final character
+# $      -> End of string
+
+pattern = r"^(\w+)?\d{3}.?\w+\s+.$"
+test_string = "ID123-Data  !"
+
+if re.match(pattern, test_string):
+    print("Match successful!")
+else:
+    print("No match found.")

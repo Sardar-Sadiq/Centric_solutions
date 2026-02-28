@@ -34,14 +34,92 @@ prompt: give me instrustions and code for creating the dashboard for data in exc
 
 
 ---regex(regular expression)---
-- it is powerful syntax used to match, search and manipualte text patterns. it supports in the almost every modern programming language including python, javascript java, and C#
+-it is in-built module it is powerful syntax used to match, search and manipualte text patterns. it supports in the almost every modern programming language including python, javascript java, and C#
 - search patterns for string matching, manipualtion and validation
 - firstly we are using the regex 
     - import re 
       text = "12345"
-      pattern = r"^\d+$" $matches one or more digits from start to end
+      pattern = r"^\d+$" $matches one or more digits from start to end 
+      
+      re.IGNORECASE (or re.I) as an argument.
 
       if re.match(pattern, text):
         print("match found")
       else: 
         print("no match")
+
+
+    for find all method
+        import re
+        matches = re.findall(r "\d+", "I have 2 apples and 5 bananas")
+        #results: ['2','5']
+
+
+
+
+-\d: Any digit (0-9).
+-\w: Any "word" character (letters, digits, or underscore).
+-\s: Any whitespace (space, tab, newline).
+-.: Any single character except a newline.
+Quantifiers:
+-*: 0 or more times.
+-+: 1 or more times.
+-?: 0 or 1 time (makes a character optional).
+-{n}: Exactly n times.
+Anchors:
+-^: Matches the start of a string.
+-$: Matches the end of a string.
+
+character static example
+ import re
+ pattern = r"^(\w+)?\d{3}.?\w+\s+.$"
+ test_string = "ID123-Data  !"
+
+ if re.match(pattern,test_string):
+    print("match found")
+else: 
+    print("no match found")
+
+
+repetations
+*  - 0 or more - ba* - "b","ba","baaa"
++  - 1 or more - ba+ - "ba", "baaa" (not"b")
+?  - 0 or 1    - ba? - "b", "ba"
+{n} - Exactly n - ba{3} - "baaa"
+{n,} - atleast n - ba{2,} - "baa", "baaaa"
+{n,m} - btw n and m - ba{2,4} - "baa", "baaa","baaaa"
+
+import re
+pattern = r"\w+\s\d{3,5}"
+text = "code 1234"
+if re.search(pattern, text):
+print("valid entry")
+
+
+validating email
+
+import re
+
+def is_valid_email(email):
+    pattern= r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if re.fullmatch(pattern, email):
+        return True
+    return False
+print(is_valid_email("test@exmaple.com))
+#o/p: True
+
+validating mobile  number
+
+import re
+pattern = r"^(\+\d{1,3}[-.\s]?)?\(?\d{1,4}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$"
+print(re.fullmatch(pattern, "+1 (555) 123-4567") is not None) # True
+
+
+
+for hide the number
+
+import re
+phone = "1234567890"
+--# Replace all digits except the last 4--
+masked = re.sub(r"\d(?=\d{4})", "*", phone)
+print(masked)  # Output: ******7890

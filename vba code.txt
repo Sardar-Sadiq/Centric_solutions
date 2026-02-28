@@ -1,0 +1,81 @@
+Sub CreateComicDashboard()
+
+    Dim wsData As Worksheet
+    Dim wsDash As Worksheet
+    Dim lastRow As Long
+    Dim ptCache As PivotCache
+    Dim pt As PivotTable
+    Dim chartObj As ChartObject
+    
+    ' Set Data Sheet
+    Set wsData = ThisWorkbook.Sheets("Sheet1")
+    
+    ' Add Revenue Column
+    wsData.Range("F1").Value = "Revenue"
+    lastRow = wsData.Cells(wsData.Rows.Count, 1).End(xlUp).Row
+    
+    wsData.Range("F2:F" & lastRow).Formula = "=D2*E2"
+    
+    ' Add Month Column
+    wsData.Range("G1").Value = "Month"
+    wsData.Range("G2:G" & lastRow).Formula = "=TEXT(A2,""mmm"")"
+    
+    ' Create Dashboard Sheet
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Sheets("Dashboard").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+    
+    Set wsDash = Sheets.Add
+    wsDash.Name = "Dashboard"
+    
+    ' Create Pivot Cache
+    Set ptCache = ThisWorkbook.PivotCaches.Create( _
+        SourceType:=xlDatabase, _
+        SourceData:=wsData.Range("A1:G" & lastRow))
+    
+    ' -------- Revenue by Comic --------
+    Set pt = ptCache.CreatePivotTable( _
+        TableDestination:=wsDash.Range("A3"), _
+        TableName:="PivotRevenue")
+    
+With pt
+    .PivotFields("Comic").Orientation = xlRowField
+    .AddDataField .PivotFields("Revenue"), "Total Revenue", xlSum
+End With
+    
+    ' Create Chart
+    Set chartObj = wsDash.ChartObjects.Add(Left:=300, Width:=400, Top:=20, Height:=250)
+    chartObj.Chart.SetSourceData Source:=pt.TableRange1
+    chartObj.Chart.ChartType = xlColumnClustered
+    chartObj.Chart.HasTitle = True
+    chartObj.Chart.ChartTitle.Text = "Revenue by Comic"
+    
+    ' -------- Monthly Trend --------
+    Set pt = ptCache.CreatePivotTable( _
+        TableDestination:=wsDash.Range("A15"), _
+        TableName:="PivotMonth")
+    
+    With pt
+        .PivotFields("Month").Orientation = xlRowField
+        .PivotFields("Comic").Orientation = xlColumnField
+        .PivotFields("Units Sold").Orientation = xlDataField
+    End With
+    
+    ' Create Line Chart
+    Set chartObj = wsDash.ChartObjects.Add(Left:=300, Width:=400, Top:=300, Height:=250)
+    chartObj.Chart.SetSourceData Source:=pt.TableRange1
+    chartObj.Chart.ChartType = xlLineMarkers
+    chartObj.Chart.HasTitle = True
+    chartObj.Chart.ChartTitle.Text = "Monthly Sales Trend"
+    
+    ' Dashboard Title
+    wsDash.Range("A1").Value = "COMIC SALES DASHBOARD"
+    wsDash.Range("A1").Font.Size = 20
+    wsDash.Range("A1").Font.Bold = True
+    
+    MsgBox "Dashboard Created Successfully!", vbInformation
+
+End Sub
+
