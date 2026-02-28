@@ -19,4 +19,15 @@ object(object is for block code but it is used to run the class)
 - __init__ constructor: it initial the code 
 
 
-
+---Create the dashboard---
+data=workbook and files=worksheets
+- we need the vba editor  (alt+f11) visial basic  
+- home right click-> customize the ribbions-> search for developer tab -> open the developer tab(click ok to the developer tab)
+- vba editor will open (it shows)
+- sales dashboard is for example 
+- we need the module need to be insert after the copying the code and after the copying the insert in module after that run.
+- f5 for run the code (it shows the dashboard name on left side top)
+- u need to open the excel u cant see anything data visuals for the visual output u need to follow the next point
+- go for developer tab you will see the macros tab and u can see the dashboard sales and run the data. it shows the visual in excel sheet 
+- and then boomm
+prompt: give me instrustions and code for creating the dashboard for data in excel 
