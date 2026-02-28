@@ -31,3 +31,17 @@ data=workbook and files=worksheets
 - go for developer tab you will see the macros tab and u can see the dashboard sales and run the data. it shows the visual in excel sheet 
 - and then boomm
 prompt: give me instrustions and code for creating the dashboard for data in excel 
+
+
+---regex(regular expression)---
+- it is powerful syntax used to match, search and manipualte text patterns. it supports in the almost every modern programming language including python, javascript java, and C#
+- search patterns for string matching, manipualtion and validation
+- firstly we are using the regex 
+    - import re 
+      text = "12345"
+      pattern = r"^\d+$" $matches one or more digits from start to end
+
+      if re.match(pattern, text):
+        print("match found")
+      else: 
+        print("no match")
