@@ -1,0 +1,22 @@
+day-1 (28/2/2026)
+---key foundations of python--- 
+- python programe has the no of libraries
+- readable language
+- sequntial execution
+- dynamical typed ( dont need the int nor flaot)
+- high level language (both and machines humans can understand. low level language means it can understandby the manchine itself)
+- standard libraries ( pytorch, numpy, pandas
+pytorch: it is used for building and training deep neural networks 
+pandas: it creates the table with help of data(data analysis and manipualtion)
+numpy: if the two arrays has the filled with numbers and can be perform the matrix arthematic operations without using the loops)  
+- it has the 3rd party libraries can be supported
+- community supported
+- oops (it is used for to create a reusable code
+inheritance, polymorphism, enclapsuation
+class (it has the varibales, fucntions of the code for reusable.it doesnt have action until the object is created)
+object(object is for block code but it is used to run the class)
+)
+- __init__ constructor: it initial the code 
+
+
+
