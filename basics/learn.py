@@ -31,3 +31,14 @@
 # for i in range(n):
 #     print(i)
 
+
+# regualr expressions
+# import re 
+
+# text = "12345"
+# pattern = r'^\d{5}$' #matches one or more digits from start to end
+
+# if re.match(pattern, text):
+#     print("match found")
+# else: 
+#     print("no match found")
