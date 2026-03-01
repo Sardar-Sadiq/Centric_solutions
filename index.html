@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Face Auth Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ededed;
+        }
+
+        .video-container {
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="max-w-md w-full space-y-6 text-center">
+        <h1 class="text-3xl font-bold tracking-tighter">Face ID Access</h1>
+        <p class="text-gray-400">Position your face in the frame to authenticate.</p>
+
+        <div class="video-container relative shadow-2xl bg-black">
+            <video id="webcam" autoplay playsinline class="w-full h-auto mt-1"></video>
+            <canvas id="canvas" class="hidden"></canvas>
+        </div>
+
+        <div class="flex gap-4 justify-center">
+            <button id="captureBtn"
+                class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition">
+                Verify Identity
+            </button>
+        </div>
+
+        <div id="status" class="mt-4 p-3 rounded-lg bg-zinc-900 border border-zinc-800 hidden">
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('webcam');
+        const canvas = document.getElementById('canvas');
+        const statusBox = document.getElementById('status');
+        const captureBtn = document.getElementById('captureBtn');
+
+        // Access Webcam
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Error accessing webcam: ", err);
+                showStatus("Camera access denied", "text-red-500");
+            }
+        }
+
+        function showStatus(msg, colorClass) {
+            statusBox.innerText = msg;
+            statusBox.className = `mt-4 p-3 rounded-lg bg-zinc-900 border border-zinc-800 ${colorClass}`;
+            statusBox.classList.remove('hidden');
+        }
+
+        captureBtn.addEventListener('click', async () => {
+            showStatus("Processing...", "text-blue-400");
+
+            // Draw frame to canvas
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+
+            // Convert canvas to Blob
+            canvas.toBlob(async (blob) => {
+                const formData = new FormData();
+                formData.append('image', blob, 'capture.jpg');
+
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/verify', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (result.status === "success") {
+                        showStatus("Access Granted: " + result.message, "text-green-500");
+                    } else {
+                        showStatus("Error: " + result.error, "text-red-500");
+                    }
+                } catch (err) {
+                    showStatus("Server not responding", "text-red-500");
+                }
+            }, 'image/jpeg');
+        });
+
+        startWebcam();
+    </script>
+</body>
+
+</html>
