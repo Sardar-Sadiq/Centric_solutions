@@ -1,0 +1,48 @@
+explanation 
+- first of all importing the tkinter, random, messagebox from tkinter 
+    import tkinter as tk
+    import random
+    from tkinter import messagebox
+
+  tkinter: it is used to create the window, canvas, btns, labels
+  random: used to simulate dice roll (1-6)
+  messagebox: used to show popup messages(dice result, winner, snake, ladder)
+
+
+- Game Data(snakes & ladder)
+    SNAKES = {99: 54, 70: 55, 52: 42, 25: 2, 95: 72}
+    LADDERS = {6: 25, 11: 40, 60: 85, 46: 90, 17: 69}
+----this is dictionary----
+  if player lands on 99-> go down to 54.
+
+  same for ladders too 
+  if player lands on 6-> climb to 25
+
+
+- Drawing the board grid
+    draws 100 squares ( 10*10 )
+    number goes from 1 - 100
+    alternate colors make it easier to see
+
+
+- Dice Roll logic
+    we used the random library to generate the random number btw 1-6
+
+
+- moving the player
+    position += dice
+        .Moves token forward
+        .if lands on snake -> goes down
+        .if lands on ladder -> climbs up
+
+- Winning condition
+    if position ==100:
+       print("player winds!")
+
+    .First player to reach 100 winds
+
+
+- Button to roll dice
+    tk.Button(root, text="Roll Dice", command=roll_dice)
+        .click btn -> roll dice & move player        
+
