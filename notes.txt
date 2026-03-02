@@ -128,4 +128,10 @@ print(masked)  # Output: ******7890
 
 
 -----day-2 (2/3/2026)-----
-
+- nothing
+- Taskss
+- Expense tracker
+- Video converter tool
+- Pdf scanner with OCR
+- Voice to test note app
+- Flash card app
