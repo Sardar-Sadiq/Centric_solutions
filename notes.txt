@@ -1,4 +1,4 @@
-day-1 (28/2/2026)
+-----day-1 (28/2/2026)-----
 ---key foundations of python--- 
 - python programe has the no of libraries
 - readable language
@@ -105,7 +105,7 @@ def is_valid_email(email):
     if re.fullmatch(pattern, email):
         return True
     return False
-print(is_valid_email("test@exmaple.com))
+print(is_valid_email("test@exmaple.com"))
 #o/p: True
 
 validating mobile  number
@@ -125,5 +125,7 @@ masked = re.sub(r"\d(?=\d{4})", "*", phone)
 print(masked)  # Output: ******7890
 
 
------work for today------
-work on the multiplayer role based on the role ( ur role is frontend fullstack develoer)
+
+
+-----day-2 (2/3/2026)-----
+

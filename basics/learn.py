@@ -44,22 +44,49 @@
 #     print("no match found")
 
 
-import re
+# import re
 
-# The Pattern Breakdown:
-# ^      -> Start of string
-# (\w+)? -> Optional word characters (0 or 1 time)
-# \d{3}  -> Exactly 3 digits
-# .      -> Any single character (except newline)
-# \w+    -> 1 or more word characters
-# \s+    -> 1 or more whitespace characters
-# .      -> One final character
-# $      -> End of string
+# # The Pattern Breakdown:
+# # ^      -> Start of string
+# # (\w+)? -> Optional word characters (0 or 1 time)
+# # \d{3}  -> Exactly 3 digits
+# # .      -> Any single character (except newline)
+# # \w+    -> 1 or more word characters
+# # \s+    -> 1 or more whitespace characters
+# # .      -> One final character
+# # $      -> End of string
 
-pattern = r"^(\w+)?\d{3}.?\w+\s+.$"
-test_string = "ID123-Data  !"
+# pattern = r"^(\w+)?\d{3}.?\w+\s+.$"
+# test_string = "ID123-Data  !"
 
-if re.match(pattern, test_string):
-    print("Match successful!")
-else:
-    print("No match found.")
+# if re.match(pattern, test_string):
+#     print("Match successful!")
+# else:
+#     print("No match found.")
+
+
+
+
+# import re
+# phone = "8341583323"
+# # Replace all digits except the last 4--
+# masked = re.sub(r"\d(?=\d{4})", "*", phone)
+# print(masked) 
+
+
+
+# import re
+# pattern = r"^(\+\d{1,3}[-.\s]?)?\(?\d{1,4}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$"
+# print(re.fullmatch(pattern, "+1 (555) 123-4567") is not None) 
+
+
+
+# import re
+
+
+# def is_valid_email(email):
+#     pattern= r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+#     if re.fullmatch(pattern, email):
+#         return True
+#     return False
+# print(is_valid_email("test@example.com"))
