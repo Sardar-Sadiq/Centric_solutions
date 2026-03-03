@@ -135,3 +135,7 @@ print(masked)  # Output: ******7890
 - Pdf scanner with OCR
 - Voice to test note app
 - Flash card app
+
+
+open the terminal and run the jupyter lab
+to open the jupyter lab 
