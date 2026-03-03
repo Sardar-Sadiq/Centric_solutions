@@ -1,0 +1,13 @@
+--Taskss
+- Expense tracker
+- Video converter tool
+- Pdf scanner with OCR
+- Voice to test note app
+- Flash card app
+
+Comprehensive code explanation guide
+
+1. Expense tracker
+    - classes:(Expense, ExpenseTracker) Used to organize data. The Expense classs acts as a template for a single receipt, while ExpenseTracker acts as the manager.
+    - file handling(json.dump, json.load): it converts the python lists/dictionaries into a string format that can be stored in a .json file.
+    - error handling: (try...except) Prevents the app from crashing if the user enters text where a number is 

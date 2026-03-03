@@ -128,7 +128,7 @@ print(masked)  # Output: ******7890
 
 
 -----day-2 (2/3/2026)-----
-- nothing
+- nothing there
 --Taskss
 - Expense tracker
 - Video converter tool
