@@ -16,7 +16,7 @@ inheritance, polymorphism, enclapsuation
 class (it has the varibales, fucntions of the code for reusable.it doesnt have action until the object is created)
 object(object is for block code but it is used to run the class)
 )
-- __init__ constructor: it initial the code 
+- __init__ constructor: it initials the code 
 
 
 ---Create the dashboard---
@@ -129,7 +129,7 @@ print(masked)  # Output: ******7890
 
 -----day-2 (2/3/2026)-----
 - nothing
-- Taskss
+--Taskss
 - Expense tracker
 - Video converter tool
 - Pdf scanner with OCR
