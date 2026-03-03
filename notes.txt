@@ -139,3 +139,26 @@ print(masked)  # Output: ******7890
 
 open the terminal and run the jupyter lab
 to open the jupyter lab 
+
+
+in the  videoconverter.py u can run the code and enter the video file name and it converts the format of video. 
+
+
+
+
+TO RUN THE PDF scanner with ocr u need to run the code and select the pdf i took sample pdf sta_2026.pdf, where i select that pdf and run the code,  it will successfully scan the pdf 
+--- PDF Scanner & OCR Tool ---
+Scanning sample_invoice.png for text...
+
+--- Extracted Text ---
+EXTRACTED TEXT FROM sample_invoice.png
+Date: 2023-10-27
+Invoice ID: 12345
+Total: $500.00
+----------------------
+
+Save as searchable document? (y/n):  y
+Enter filename (e.g., invoice_scanned.pdf):  sta_2026.pdf
+Document saved successfully at: scanned_docs\sta_2026.pdf
+
+
