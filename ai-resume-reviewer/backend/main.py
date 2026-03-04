@@ -1,32 +1,24 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
-from analyzer import ResumeAnalyzer
-import os
+from parser import get_pdf_text
+from analyzer import ResumeReviewer
+import shutil
 
 app = FastAPI()
 
-#allow react to talk to python
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_origins=["*"],
-    allow_headers=["*"],
-)
+# Enable CORS so Bun (frontend) can talk to Python (backend)
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
-@app.post("/analyze")
-async def analyze_resume(file: UploadFile = File(...)):
-    # 1. save file temporarily
-    temp_path = f"temp_{file.filename}"
-    with open(temp_path, "wb") as buffer:
+@app.post("/review")
+async def review_resume(file: UploadFile = File(...)):
+    # Save file temporarily
+    path = f"temp_{file.filename}"
+    with open(path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-
-    # 2. Process with our class 
-    target_keywords = ["React", "Python", "SQL", "API"]
-    engine = ResumeAnalyzer(temp_path)
-
-    if engine.extract_content():
-        results = engine.analyze(target_keywords)
-        os.remove(temp_path)
-        return results
-
-    return {"error": "failed to process file"}
+    
+    # Process
+    text = get_pdf_text(path)
+    reviewer = ResumeReviewer(text)
+    results = reviewer.get_score(["React", "Python", "Tailwind", "JavaScript"])
+    
+    return results
