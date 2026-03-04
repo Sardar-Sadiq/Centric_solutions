@@ -162,3 +162,14 @@ Enter filename (e.g., invoice_scanned.pdf):  sta_2026.pdf
 Document saved successfully at: scanned_docs\sta_2026.pdf
 
 
+
+day-3 (3/3/2026)
+
+
+
+day-4 (4/3/2026)
+- AI Resume Review
+- AI Image Caption Generator
+- AI Image interview bot
+- Telegram bot
+- Django e-commerce site

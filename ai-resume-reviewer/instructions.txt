@@ -1,0 +1,41 @@
+# AI Resume Reviewer - Setup & Run Instructions
+
+## Backend Setup (Python)
+
+1. Open a terminal and navigate to the backend directory:
+   `cd backend`
+
+2. (Optional but recommended) Create and activate a virtual environment:
+   Windows:
+   `python -m venv venv`
+   `venv\Scripts\activate`
+
+3. Install the required Python packages:
+   `pip install -r requirements.txt`
+
+4. Run the backend server:
+   `uvicorn main:app --reload`
+   The backend will run on http://12 selected by uvicorn (usually http://127.0.0.1:8000).
+
+## Frontend Setup (Node.js / Bun)
+
+Note: The frontend project uses Vite and React. The dependencies are already defined in `package.json`. You can see `bun.lock`, which means `bun` was previously used, but `npm` also works just fine.
+
+1. Open a new terminal and navigate to the frontend directory:
+   `cd frontend`
+
+2. Install the frontend dependencies (use bun or npm):
+   Using bun:
+   `bun install`
+   
+   Using npm:
+   `npm install`
+
+3. Run the development server:
+   Using bun:
+   `bun run dev`
+   
+   Using npm:
+   `npm run dev`
+
+4. Open your browser and navigate to the local server URL provided in the terminal (usually http://localhost:5173).
