@@ -1,0 +1,57 @@
+HMR= hot module replacement is a development feature that updates parts of an angular application without reloading the entire page.
+
+
+Essentials-------------------------------- 
+1. Fundamentals of TS andd OOPS
+2. Angular Fundamentals
+3. Displaying data and handling events
+4. Components
+5. Directives
+6. Template-driven forms
+7. Reactive forms
+8. Consuming HTTP services
+9. Routing and navigation 
+10.Authentication and authorization
+11.Deployment
+12.Building real-time,serverless applications with Firebase
+
+Advanced topics--------------------------
+1. Animations
+2. Angular Material
+3. Redux
+4. Unit Testing
+5. Integration testing
+
+Final project-----------------
+E commerce website
+
+
+to run the 
+
+
+shortcut--------------------------------- 
+complete the all Essentials (optional: skip the reactive forms, Consuming HTTP services, Authentication and authorization)
+
+
+
+in angular we use the pascal naming convention where the every word first letter should be capital
+
+
+
+file structure: 
+app.ts is the main Component
+app.html is the html file of app.ts
+app.routes.ts is the routing file which has the all routing
+app.config.ts it is app-level configuration
+app.config.server.ts it is used for server-side rendering (SSR)
+app.routes.server.ts it is used for server-side routes
+app.spec.ts testing file (u can ignore)
+
+
+
+
+
+
+
+
+1:34:00
