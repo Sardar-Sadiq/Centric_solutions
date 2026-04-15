@@ -26,7 +26,9 @@ Final project-----------------
 E commerce website
 
 
-to run the angular project : ng serve
+to run the angular project : 
+    ng serve --hmr
+    ng serve --open (for run and automatically)
 
 
 shortcut--------------------------------- 
@@ -54,4 +56,5 @@ app.spec.ts testing file (u can ignore)
 
 
 
-1:34:00
+need to know about
+. Common modules, how to use them, real time use 

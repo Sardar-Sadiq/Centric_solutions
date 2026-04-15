@@ -4,8 +4,8 @@ import { CoursesComponent } from './courses.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CoursesComponent],
-  templateUrl: './app.html',
+  // imports: [CoursesComponent],
+  templateUrl: './app.component.html',
   styleUrl: './app.css'
 })
 export class App {
