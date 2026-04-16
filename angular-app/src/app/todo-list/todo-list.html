@@ -1,1 +1,7 @@
-<p>todo-list works!</p>
+
+@for (todo of TodoList; let i = $index; track i){
+<div class=" bg-white px-4 py-3 mb-2.5 rounded-md shadow-sm shadow-[rgba(0,0,0,0.1)] flex justify-between items-center">
+    <h2 class="margin-0 font-normal text-xl ">{{todo}}</h2>
+    <button (click)="delete(i)" class="bg-[#e53935] text-white border-none px-3 py-1.5 rounded-md cursor-pointer text-[0.9rem] transition 0.2s ease-in-out hover:bg-[#b71c1c]">Delete</button>
+</div>
+}

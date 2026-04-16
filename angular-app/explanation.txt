@@ -1,0 +1,64 @@
+as you can see here in this angualr project i learned 
+
+-how the components are created
+-how the css should be written
+-how the tailwindcss should be written
+-handle dom in angular with Typescript
+- handling the logic with Typescript
+
+
+In this todo list project, the app works with three main parts:
+
+1. Parent component (`App`):
+   - keeps the `todos` array in memory
+   - receives new tasks from the `AddItem` child component
+   - removes tasks when the `TodoList` child component tells it to delete one
+
+2. Add item component (`AddItem`):
+   - uses `FormControl` to bind the input field value
+   - has an `@Output()` event emitter called `newTodo`
+   - when the user clicks Add, `submitTodo()` trims the text, emits it, and clears the input
+
+3. Todo list component (`TodoList`):
+   - receives the task list with `@Input() TodoList`
+   - renders each task with `@for` in the template
+   - sends the task index back to the parent when Delete is clicked
+
+How the logic works:
+
+- `App` owns the data. `todos` is the source of truth.
+- `AddItem` does not store the task list. It only sends one new item to `App`.
+- `TodoList` does not delete tasks itself. It tells `App` which index to remove.
+- This is called "data down, events up" pattern.
+
+Why this is good:
+
+- It keeps each component simple.
+- The parent component controls state.
+- Child components ask the parent to update state via events.
+- This structure is similar to React props + callback functions.
+
+How to practice these ideas properly:
+
+- Build the same app again from scratch without looking at the video.
+- Change one part: add task editing, mark tasks complete, or save tasks in `localStorage`.
+- Try a version with a separate service for the task list (Angular `Injectable`) later.
+- Read Angular docs for `@Input`, `@Output`, `EventEmitter`, and `ReactiveFormsModule`.
+
+How this compares to React / Next.js:
+
+- In React, parent state is usually stored with `useState` and passed down as props.
+- In Angular, parent state is stored as a class property and passed down with `@Input()`.
+- In React, child components call a function prop like `onAddTask(task)`.
+- In Angular, child components emit events with `@Output()` and `EventEmitter`.
+- Next.js is a React framework for pages and routing, while Angular is a full framework with built-in templates, dependency injection, and forms.
+
+To learn Angular well:
+
+- Practice the basics: components, templates, bindings, and events.
+- Compare with React by writing the same app in both frameworks.
+- Understand how data flows: parent state, child inputs, child outputs.
+- Start small, then add one feature at a time.
+- Use browser console logs to watch values flow from component to component.
+
+This is a great first project. Keep building small apps like todo list, counter, and note board to make these ideas feel easy.

@@ -1,8 +1,10 @@
 <main class="min-h-screen ">
   <h1 class="text-5xl ">Todo app</h1>
 
-    <app-add-item></app-add-item>
-
-  <h2 class="text-3xl">todo list</h2>
+    <app-add-item  (newTodo)="addTodo($event)" ></app-add-item>
+    <app-todo-list
+      [TodoList]="todos"
+      (todoDeleted)="handleDeletedTodo($event)"
+    ></app-todo-list>
 
 </main>

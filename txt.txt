@@ -50,11 +50,14 @@ app.routes.server.ts it is used for server-side routes
 app.spec.ts testing file (u can ignore)
 
 
-
-
+// []- by this we can bind property binding
+// ()- by this we can bind method binding
+in the add-item.html
 
 
 
 
 need to know about
 . Common modules, how to use them, real time use 
+
+
